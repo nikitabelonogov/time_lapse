@@ -5,7 +5,6 @@ import argparse
 from time_lapse import TimeLapseCamera
 
 if __name__ == '__main__':
-    #parsing args
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--camera_port', type=int,   default=0,      help='The index of the camera.')
     parser.add_argument('-c', '--codec',       type=str,   default='mp4v', help='4 bit codec')
@@ -15,11 +14,6 @@ if __name__ == '__main__':
     parser.add_argument('-i', '--interval',    type=float, default=1.,     help='Time in seconds between shoots.')
     args = parser.parse_args()
 
-    camera = TimeLapseCamera(camera_port=args.camera_port,
-                             codec_name=args.codec,
-                             fps=args.fps,
-                             time_limit=args.time_limit,
-                             output_time=args.output_time,
-                             interval=args.interval)
+    camera = TimeLapseCamera(**vars(args))
     camera.start()
     camera.release()
