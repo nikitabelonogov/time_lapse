@@ -1,6 +1,11 @@
 # time_lapse
 Time lapse photography with a webcam.
 
+##Install requirements
+```
+sudo apt-get install -y python-opencv
+```
+
 ##Usage
 ```
 app.py [-h] [-p CAMERA_PORT] [-c CODEC] [-l TIME_LIMIT]
